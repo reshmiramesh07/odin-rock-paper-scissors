@@ -1,9 +1,9 @@
-// Write the logic to get the computer choice
-// choice = rand int from 0-2. 0=rock, 1=paper, 2=scissors
-// console log that choice
+// score vars
 
-const validChoice = ["ROCK", "PAPER", "SCISSORS"];
+let computerScore = 0;
+let humanScore = 0;
 
+// get computer choice
 function getComputerChoice() {
   let cChoice = Math.random() * 3;
   console.log(cChoice);
@@ -16,6 +16,7 @@ function getComputerChoice() {
   }
 }
 
+// get human choice
 function getHumanChoice() {
   let hChoice = prompt("Rock, paper, or scissors? ").toLowerCase();
   while (hChoice !== "rock" && hChoice !== "paper" && hChoice !== "scissors") {
@@ -25,5 +26,3 @@ function getHumanChoice() {
   }
   return hChoice;
 }
-
-console.log(getHumanChoice());
