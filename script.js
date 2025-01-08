@@ -17,13 +17,13 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let hChoice = "rock";
-  console.log(hChoice.toUpperCase());
-  console.log("ROCK" in validChoice);
-  //   while (hChoice.toUpperCase() in validChoice == false) {
-  //     hChoice = prompt("Rock, paper, or scissors? ");
-  //   }
-  //   return hChoice;
+  let hChoice = prompt("Rock, paper, or scissors? ").toLowerCase();
+  while (hChoice !== "rock" && hChoice !== "paper" && hChoice !== "scissors") {
+    hChoice = prompt(
+      "Invalid choice. \nRock, paper, or scissors? "
+    ).toLowerCase();
+  }
+  return hChoice;
 }
 
 console.log(getHumanChoice());
