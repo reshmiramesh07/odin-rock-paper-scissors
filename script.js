@@ -26,3 +26,48 @@ function getHumanChoice() {
   }
   return hChoice;
 }
+
+function playRound(humanChoice, computerChoice) {
+  let verdict = humanChoice + " beats " + computerChoice;
+  let outcome = "lose";
+  if (humanChoice == "rock") {
+    if (computerChoice == "rock") {
+      outcome = "tie";
+    } else if (computerChoice == "paper") {
+      outcome = "lose";
+    } else if (computerChoice == "scissors") {
+      outcome = "win";
+    }
+  } else if (humanChoice == "paper") {
+    if (computerChoice == "rock") {
+      outcome = "win";
+    } else if (computerChoice == "paper") {
+      outcome = "tie";
+    } else if (computerChoice == "scissors") {
+      outcome = "lose";
+    }
+  } else if (humanChoice == "scissors") {
+    if (computerChoice == "rock") {
+      outcome = "lose";
+    } else if (computerChoice == "paper") {
+      outcome = "win";
+    } else if (computerChoice == "scissors") {
+      outcome = "tie";
+    }
+  }
+
+  if (outcome == "lose") {
+    computerScore++;
+    verdict = computerChoice + " beats " + humanChoice + ".";
+    console.log("You " + outcome + "! " + verdict);
+  } else if (outcome == "tie") {
+    console.log("You tied!");
+  } else {
+    humanScore++;
+    console.log("You " + outcome + "! " + verdict + ".");
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
