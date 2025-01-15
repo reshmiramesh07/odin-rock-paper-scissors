@@ -52,24 +52,35 @@ function playRound(humanChoice, computerChoice) {
   }
 
   if (outcome == "lose") {
+    computerScore++;
     verdict = computerChoice + " beats " + humanChoice + ".";
-    console.log("You " + outcome + "! " + verdict);
+    display.textContent = "You " + outcome + "! " + verdict;
   } else if (outcome == "tie") {
-    console.log("You tied!");
+    display.textContent = "You tied!";
   } else {
-    console.log("You " + outcome + "! " + verdict + ".");
+    humanScore++;
+    display.textContent = "You " + outcome + "! " + verdict + ".";
   }
+
+  scoreDisplay.textContent = humanScore + " - " + computerScore;
 }
 
 // playGame();
+let humanScore = 0;
+let computerScore = 0;
 
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
+const display = document.querySelector("div");
+const scoreDisplay = document.querySelector("#score-display");
 
-btnRock.addEventListener("click", playRound("rock", getComputerChoice()));
-btnPaper.addEventListener("click", playRound("paper", getComputerChoice()));
-btnScissors.addEventListener(
-  "click",
-  playRound("scissors", getComputerChoice())
-);
+btnRock.addEventListener("click", () => {
+  playRound("rock", getComputerChoice());
+});
+btnPaper.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+});
+btnScissors.addEventListener("click", () => {
+  playRound("scissors", getComputerChoice());
+});
